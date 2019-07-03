@@ -809,3 +809,10 @@ def adaptive_universal_transformer_base_range(rhp):
   rhp.set_discrete("transformer_ffn_type", ["sepconv", "fc"])
   rhp.set_float("learning_rate", 0.3, 3.0, scale=rhp.LOG_SCALE)
   rhp.set_float("weight_decay", 0.0, 2.0)
+
+
+@registry.register_hparams
+def adaptive_universal_transformer_base_small():
+  hparams = adaptive_universal_transformer_base()
+  hparams.batch_size = 128
+  return hparams
